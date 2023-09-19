@@ -1,6 +1,10 @@
 package com.example.springboot.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.UUID;
+
+import org.springframework.hateoas.RepresentationModel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,11 +14,53 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
+@Entity
+@Table(name = "tb_products")
+public class ProductModel extends RepresentationModel<ProductModel> implements Serializable {
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")	
+	private UUID id;
+
+	@Column(name = "nome")
+	private String nome;
+
+	@Column(name = "valor")
+	private BigDecimal valor;
+
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return this.nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+}
+
+
+// **** Original code *******//
 // @Entity
 // @Table(name = "tb_products")
 // public class ProductModel extends RepresentationModel<ProductModel> implements Serializable{
 // 	private static final long serialVersionUID = 1L;
-	
+
 // 	@Id
 // 	@GeneratedValue(strategy=GenerationType.AUTO)
 // 	private UUID idProduct;
@@ -46,44 +92,44 @@ import jakarta.persistence.Table;
 // 	}
 // }
 
-@Entity
-@Table(name = "tb_products")
-public class ProductModel {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-    
-    @Column(name = "nome")
-    private String nome;
-    
-    @Column( name = "valor")
-    private BigDecimal valor;
+// **** withouth UUID *****//
+// @Entity
+// @Table(name = "tb_products")
+// public class ProductModel {
 
-	public Long getId() {
-		return this.id;
-	}
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     @Column(name = "id")
+//     private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+//     @Column(name = "nome")
+//     private String nome;
 
-	public String getNome() {
-		return this.nome;
-	}
+//     @Column( name = "valor")
+//     private BigDecimal valor;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+// 	public Long getId() {
+// 		return this.id;
+// 	}
 
-	public BigDecimal getValor() {
-		return valor;
-	}
+// 	public void setId(Long id) {
+// 		this.id = id;
+// 	}
 
-	public void setValor(BigDecimal valor) {
-		this.valor= valor;
-	}
-}
+// 	public String getNome() {
+// 		return this.nome;
+// 	}
 
+// 	public void setNome(String nome) {
+// 		this.nome = nome;
+// 	}
+
+// 	public BigDecimal getValor() {
+// 		return valor;
+// 	}
+
+// 	public void setValor(BigDecimal valor) {
+// 		this.valor= valor;
+// 	}
+// }
 
