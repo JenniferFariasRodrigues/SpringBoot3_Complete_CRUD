@@ -1,5 +1,7 @@
 package com.example.springboot.models;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -45,7 +47,7 @@ import jakarta.persistence.Table;
 // }
 
 @Entity
-@Table(name = "tb_usuarios")
+@Table(name = "tb_products")
 public class ProductModel {
     
     @Id
@@ -56,8 +58,8 @@ public class ProductModel {
     @Column(name = "nome")
     private String nome;
     
-    @Column(unique = true, name = "email")
-    private String email;
+    @Column( name = "valor")
+    private BigDecimal valor;
 
 	public Long getId() {
 		return this.id;
@@ -75,11 +77,13 @@ public class ProductModel {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return this.email;
+	public BigDecimal getValor() {
+		return valor;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setValor(BigDecimal valor) {
+		this.valor= valor;
 	}
 }
+
+

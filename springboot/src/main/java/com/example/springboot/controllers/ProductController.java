@@ -11,7 +11,7 @@ import com.example.springboot.models.ProductModel;
 import com.example.springboot.repositories.ProductRepository;
 
 @RestController
-@RequestMapping(value = "/usuarios")
+@RequestMapping(value = "/products")
 public class ProductController {
     
     @Autowired
