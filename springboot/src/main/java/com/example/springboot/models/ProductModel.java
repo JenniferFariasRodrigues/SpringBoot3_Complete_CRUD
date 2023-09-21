@@ -23,11 +23,11 @@ public class ProductModel extends RepresentationModel<ProductModel> implements S
 	@Column(name = "id")	
 	private UUID id;
 
-	@Column(name = "nome")
-	private String nome;
+	@Column(name = "name")
+	private String name;
 
-	@Column(name = "valor")
-	private BigDecimal valor;
+	@Column(name = "valueProduct")
+	private BigDecimal valueProduct;
 
 	public UUID getId() {
 		return id;
@@ -37,20 +37,20 @@ public class ProductModel extends RepresentationModel<ProductModel> implements S
 		this.id = id;
 	}
 
-	public String getNome() {
-		return this.nome;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public BigDecimal getValor() {
-		return valor;
+	public BigDecimal getValueProduct() {
+		return valueProduct;
 	}
 
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
+	public void setValueProduct(BigDecimal valueProduct) {
+		this.valueProduct = valueProduct;
 	}
 }
 
